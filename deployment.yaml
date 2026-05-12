@@ -35,7 +35,7 @@ spec:
               value: "doadmin"
 
             - name: DB_PASSWORD
-              value: "AVNS_Hsm1JMkwV0Vv7_P6YMe"
+              value: "****"
 
             - name: DB_SSLMODE
               value: "require"
