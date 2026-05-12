@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: birthday-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: birthday-app
+
+  template:
+    metadata:
+      labels:
+        app: birthday-app
+
+    spec:
+      containers:
+        - name: birthday-app
+          image: kajalkanchan/birthday-app:v1
+
+          ports:
+            - containerPort: 5000
+
+          env:
+            - name: DB_HOST
+              value: "db-postgresql-nyc3-03816-do-user-37024572-0.f.db.ondigitalocean.com"
+
+            - name: DB_NAME
+              value: "defaultdb"
+
+            - name: DB_USER
+              value: "doadmin"
+
+            - name: DB_PASSWORD
+              value: "AVNS_Hsm1JMkwV0Vv7_P6YMe"
+
+            - name: DB_SSLMODE
+              value: "require"
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
